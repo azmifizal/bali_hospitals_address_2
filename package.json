@@ -1,0 +1,43 @@
+{
+  "name": "graphql_hospital_address",
+  "version": "1.0.0",
+  "description": "simple hospital address data source with node, express, mongodb and graphql",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --exec babel-node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assmuni/bali_hospitals_address_2.git"
+  },
+  "keywords": [
+    "graphql",
+    "hospital",
+    "bali",
+    "hospital",
+    "address"
+  ],
+  "author": "assmuni@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/assmuni/bali_hospitals_address_2/issues"
+  },
+  "homepage": "https://github.com/assmuni/bali_hospitals_address_2#readme",
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.2.0",
+    "graphql-tools": "^4.0.4",
+    "merge-graphql-schemas": "^1.5.8",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.2.2"
+  }
+}
