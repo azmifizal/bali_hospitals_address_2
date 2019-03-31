@@ -19,6 +19,6 @@ export default `
     }
 
     type Query {
-        hospitals: [Hospital]!
+        hospitals: [Hospital!]!
     }
 `;

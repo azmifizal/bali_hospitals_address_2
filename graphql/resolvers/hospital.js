@@ -2,17 +2,11 @@ import Hospital from '../../models/hospital';
 
 export default {
     Query: {
-        // hospitals: () => {
-        //     return Hospital.find()
-        //                     .then(data => {
-        //                         // return console.log(data);
-        //                         return data;
-        //                     })
-        //                     .catch(err => {
-        //                         return err;
-        //                     });
-        // }
-        hospitals: async () => {
+        hospitals: async(data, args, context, info) => {
+            if (!context.auth) {
+                return new Error('Not Allowed!');
+            }
+
             try {
                 const result = await Hospital.find();
                 return result;

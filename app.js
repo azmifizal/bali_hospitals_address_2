@@ -2,6 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import expressGraphql from 'express-graphql';
+import authMiddleware from './middlewares/authCek';
+// const authCheck = require('./middlewares/authCek');
+
 
 import Schema from './graphql/index';
 
@@ -17,11 +20,25 @@ const app = express();
 
 app.use(
     '/graphql',
-    bodyParser.json(),
-    expressGraphql({
+    [
+        authMiddleware,
+        bodyParser.json(),
+    ],
+
+    // (req, res) => expressGraphql({
+    //     schema: Schema,
+    //     context: req.auth,
+    //     graphiql: true
+    // })(req, res)
+
+    expressGraphql((req, res) => ({
         schema: Schema,
+        context: {
+            auth: req.auth,
+            userId: req.userId
+        },
         graphiql: true
-    })
+    }))
 );
 
 app.listen(4000, () => {

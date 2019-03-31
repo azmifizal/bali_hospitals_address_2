@@ -28,11 +28,13 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "graphql": "^14.2.0",
     "graphql-tools": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
     "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10"
