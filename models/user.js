@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema({
     },
     permissionLevel: {
         type: Number,
-        required: true
+        required: true,
+        default: 1
     },
     dateCreated: {
         type: Date,

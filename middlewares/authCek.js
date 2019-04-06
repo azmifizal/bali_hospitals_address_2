@@ -34,6 +34,7 @@ const authMiddleware = (req, res, next) => {
 
     req.auth = true;
     req.userId = checkToken.userId;
+    req.permissionLevel = checkToken.permissionLevel;
     return next();
 }
 

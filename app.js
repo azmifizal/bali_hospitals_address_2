@@ -3,39 +3,31 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import expressGraphql from 'express-graphql';
 import authMiddleware from './middlewares/authCek';
-// const authCheck = require('./middlewares/authCek');
-
-
 import Schema from './graphql/index';
+import config from './helpers/config.env'
 
-mongoose.connect('mongodb://localhost/portofolio', {useNewUrlParser: true})
+mongoose.connect(config.db, {useNewUrlParser: true})
         .then(() => { console.info(`DB connected`) })
         .catch((err) => { console.info(`DB not conncted -> ${err}`) });
 
 const app = express();
 
-// app.get('/', (req, res) => {
-//     res.send('holaa')
-// });
-
 app.use(
     '/graphql',
     [
         authMiddleware,
-        bodyParser.json(),
+        bodyParser.json()
     ],
 
-    // (req, res) => expressGraphql({
-    //     schema: Schema,
-    //     context: req.auth,
-    //     graphiql: true
-    // })(req, res)
-
-    expressGraphql((req, res) => ({
+    // ### SEND DATA FROM REQ TROUGHT TO ALL RESOLVERS
+    expressGraphql(({auth, userId, permissionLevel}) => ({
         schema: Schema,
         context: {
-            auth: req.auth,
-            userId: req.userId
+            user: {
+                auth,
+                userId,
+                permissionLevel
+            }
         },
         graphiql: true
     }))
