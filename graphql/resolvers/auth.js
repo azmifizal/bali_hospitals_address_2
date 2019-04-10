@@ -17,8 +17,6 @@ export default {
                     } else {
                         const pl = {
                             userId: emailCheck.id,
-                            // name: emailCheck.name,
-                            // email: emailCheck.email,
                             permissionLevel: emailCheck.permissionLevel
                         }
                         const token = jwt.sign(pl, secret.key_s, {expiresIn: '24h'});

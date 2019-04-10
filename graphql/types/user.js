@@ -10,21 +10,21 @@ export default `
         user(id: ID!): User!
     }
 
-    input dataInsert {
+    input insertUser {
         name: String!
         email: String!
         password: String!
         permissionLevel: Int
     }
 
-    input dataEdit {
+    input editUser {
         name: String
         email: String
     }
 
     type Mutation {
-        addUser(data: dataInsert): User!
-        editUser(id: ID!, data: dataEdit): User!
+        addUser(data: insertUser): User!
+        editUser(id: ID!, data: editUser): User!
         deleteUser(id: ID!): User
     }
 `;
