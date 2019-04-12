@@ -1,4 +1,4 @@
-import { getAll, getOne, getSearch, add } from './hospital';
+import { getAll, getOne, getSearch, add, edit, del } from './hospital';
 import config from '../../../helpers/config.env';
 
 const ADM = config.permissionLevels.SUPER_ADMIN;
@@ -17,8 +17,14 @@ export default {
         }
     },
     Mutation: {
-        addHospital: (root, args, context) => {
+        createHospital: (root, args, context) => {
             return add([ADM, USR], args.input, context.user);
+        },
+        updateHospital: (root, args, context) => {
+            return edit([ADM, USR], args.id, args.input, context.user);
+        },
+        deleteHospital: (root, args, context) => {
+            return del([ADM, USR], args.id, context.user);
         }
     }
 }

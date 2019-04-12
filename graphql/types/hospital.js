@@ -1,25 +1,27 @@
 export default `
     type Location {
-        address: String!
-        districs: String!
-        postal_code: Int!
-        email: String!
-        phone: String!
-        fax: String!
+        id: ID
+        address: String
+        districts: String
+        postal_code: Int
+        email: String
+        phone: String
+        fax: String
     }
 
     type Hospital {
-        code: Int!
-        name: String!
-        type: String!
-        class: String!
-        owner: String!
-        location: Location!
-        last_update: String!
+        id: ID!
+        code: Int
+        name: String
+        type: String
+        class: String
+        owner: String
+        location: Location
+        last_update: String
     }
 
     type Query {
-        hospitals: [Hospital!]!
+        hospitals: [Hospital]!
         hospital(id: ID!): Hospital
         hospitalSearch(key: String!): [Hospital]
     }
@@ -28,7 +30,7 @@ export default `
         address: String
         districts: String
         postal_code: Int
-        email: String
+        email: String   
         phone: String
         fax: String
     }
@@ -44,6 +46,8 @@ export default `
     }
 
     type Mutation {
-        addHospital(input: inputHospital): Hospital
+        createHospital(input: inputHospital): Hospital
+        updateHospital(id: ID!, input: inputHospital): Hospital
+        deleteHospital(id: ID!): Hospital
     }
 `;  
