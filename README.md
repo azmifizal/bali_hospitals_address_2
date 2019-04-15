@@ -5,8 +5,7 @@
 Data source: http://sirs.yankes.kemkes.go.id/rsonline/report/
 
 ### #Demo
-<!-- [balihospitaladdress.herokuapp.com](https://balihospitaladdress.herokuapp.com/)  -->
-soon!
+[balihospitaladdress2.herokuapp.com](https://balihospitaladdress2.herokuapp.com/graphql) 
 
 ### To run this app locally:
 #### 1) Clone this repo
