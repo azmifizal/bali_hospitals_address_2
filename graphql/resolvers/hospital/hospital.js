@@ -1,7 +1,7 @@
-import Hospital from '../../../models/hospital';
+const Hospital = require('../../../models/hospital');
 
 
-export const getAll = async (permission, {auth, permissionLevel}) => {
+exports.getAll = async (permission, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -13,7 +13,7 @@ export const getAll = async (permission, {auth, permissionLevel}) => {
     }
 }
 
-export const getOne = async (permission, id, {auth, permissionLevel}) => {
+exports.getOne = async (permission, id, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -25,7 +25,7 @@ export const getOne = async (permission, id, {auth, permissionLevel}) => {
     }
 }
 
-export const getSearch = async (permission, key, {auth, permissionLevel}) => {
+exports.getSearch = async (permission, key, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -43,7 +43,7 @@ export const getSearch = async (permission, key, {auth, permissionLevel}) => {
     }
 }
 
-export const add = async (permission, input , {auth, permissionLevel}) => {
+exports.add = async (permission, input , {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -56,7 +56,7 @@ export const add = async (permission, input , {auth, permissionLevel}) => {
     }
 }
 
-export const edit = async (permission, id, input, {auth, permissionLevel}) => {
+exports.edit = async (permission, id, input, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -82,7 +82,7 @@ export const edit = async (permission, id, input, {auth, permissionLevel}) => {
     }
 }
 
-export const del = async (permission, id, {auth, permissionLevel}) => {
+exports.del = async (permission, id, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
 

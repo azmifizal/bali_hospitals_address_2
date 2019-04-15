@@ -1,10 +1,10 @@
-import { getAll, getOne, getSearch, add, edit, del } from './hospital';
-import config from '../../../helpers/config.env';
+const { getAll, getOne, getSearch, add, edit, del } = require('./hospital');
+const config = require('../../../helpers/config.env');
 
 const ADM = config.permissionLevels.SUPER_ADMIN;
 const USR = config.permissionLevels.USER;
 
-export default {
+module.exports = {
     Query: {
         hospitals: (root, args, context) => {
             return getAll([ADM, USR], context.user);

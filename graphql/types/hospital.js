@@ -1,4 +1,4 @@
-export default `
+module.exports = `
     type Location {
         id: ID
         address: String

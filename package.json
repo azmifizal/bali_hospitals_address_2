@@ -4,6 +4,7 @@
   "description": "simple hospital address data source with node, express, mongodb and graphql",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon --exec babel-node app.js"
   },

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     'key_s': 'aS08q2u24[EHQP9DVOUWEY',
     'permissionLevels': {
         'SUPER_ADMIN': 911,

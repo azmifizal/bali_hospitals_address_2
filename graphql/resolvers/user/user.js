@@ -1,7 +1,7 @@
-import bcrypt from 'bcryptjs';
-import User from '../../../models/user';
+const bcrypt = require('bcryptjs');
+const User = require('../../../models/user');
 
-export const getAll = async (permission, {auth, permissionLevel}) => {
+exports.getAll = async (permission, {auth, permissionLevel}) => {
 
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
@@ -14,7 +14,7 @@ export const getAll = async (permission, {auth, permissionLevel}) => {
     }
 }
 
-export const getOne = async (permission, id, {auth, permissionLevel}) => {
+exports.getOne = async (permission, id, {auth, permissionLevel}) => {
 
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
@@ -27,9 +27,9 @@ export const getOne = async (permission, id, {auth, permissionLevel}) => {
     }
 }
 
-export const add = async (permission, data, {auth, permissionLevel}) => {
-    if (!auth) throw new Error('Authentication false!');
-    if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
+exports.add = async (data, {auth, permissionLevel}) => {
+    // if (!auth) throw new Error('Authentication false!');
+    // if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
 
     try {
         let salt = await bcrypt.genSalt(10);
@@ -46,7 +46,7 @@ export const add = async (permission, data, {auth, permissionLevel}) => {
     }
 }
 
-export const edit = async (permission, id, data, {auth, permissionLevel}) => {
+exports.edit = async (permission, id, data, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
     
@@ -58,7 +58,7 @@ export const edit = async (permission, id, data, {auth, permissionLevel}) => {
     }
 }
 
-export const del = async (permission, id, {auth, permissionLevel}) => {
+exports.del = async (permission, id, {auth, permissionLevel}) => {
     if (!auth) throw new Error('Authentication false!');
     if (!permission.includes(permissionLevel)) throw new Error('Authorization not allowed!');
 

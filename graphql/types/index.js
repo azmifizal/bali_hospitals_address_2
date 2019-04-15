@@ -1,9 +1,9 @@
-import { mergeTypes } from 'merge-graphql-schemas';
+const { mergeTypes } = require('merge-graphql-schemas');
 
-import hospitalTypes from './hospital';
-import authTypes from './auth';
-import userTypes from './user';
+const hospitalTypes = require('./hospital');
+const authTypes = require('./auth');
+const userTypes = require('./user');
 
 const typeDefs = [hospitalTypes, authTypes, userTypes];
 
-export default mergeTypes(typeDefs, {all: true});
+module.exports = mergeTypes(typeDefs, {all: true});

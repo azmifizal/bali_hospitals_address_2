@@ -1,8 +1,8 @@
-import { mergeResolvers } from 'merge-graphql-schemas';
-import hospitalResolvers  from './hospital';
-import authResolvers from './auth';
-import userResolvers from './user';
+const { mergeResolvers } = require('merge-graphql-schemas');
+const hospitalResolvers  = require('./hospital');
+const authResolvers = require('./auth');
+const userResolvers = require('./user');
 
 const Resolvers = [hospitalResolvers, authResolvers, userResolvers];
 
-export default mergeResolvers(Resolvers);
+module.exports = mergeResolvers(Resolvers);

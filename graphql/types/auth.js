@@ -1,11 +1,16 @@
-export default `
+module.exports = `
     type Auth {
         userId: ID!
         token: String!
         permissionLevel: Int!
     }
 
+    input insertLogin {
+        email: String!,
+        password: String!
+    }
+
     type Query {
-        login(email: String!, password: String!): Auth!
+        login(data: insertLogin): Auth!
     }
 `;

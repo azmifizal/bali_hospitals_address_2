@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const LocationSchema = new mongoose.Schema({
     address: {
@@ -57,4 +57,4 @@ const HospitalSchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model('Hospital', HospitalSchema);
+module.exports = mongoose.model('Hospital', HospitalSchema);

@@ -1,10 +1,10 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import expressGraphql from 'express-graphql';
-import authMiddleware from './middlewares/authCek';
-import Schema from './graphql/index';
-import config from './helpers/config.env'
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const expressGraphql = require('express-graphql');
+const authMiddleware = require('./middlewares/authCek');
+const Schema = require('./graphql/index');
+const config = require('./helpers/config.env');
 
 mongoose.connect(config.db, {useNewUrlParser: true})
         .then(() => { console.info(`DB connected`) })

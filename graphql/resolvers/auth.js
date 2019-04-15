@@ -1,17 +1,18 @@
-import User from '../../models/user';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import secret from '../../helpers/config.env';
+const User = require('../../models/user');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const secret = require('../../helpers/config.env');
 
-export default {
+module.exports = {
     Query: {
-        login: async (root, args) => {
+        login: async (root, {data}) => {
+            // return console.log(data.email);
             try {
-                const emailCheck = await User.findOne({ email: args.email });
+                const emailCheck = await User.findOne({ email: data.email });
                 if (!emailCheck) {
                     throw new Error(`Email does't exist!`);
                 } else {
-                    const passCheck = await bcrypt.compare(args.password, emailCheck.password);
+                    const passCheck = await bcrypt.compare(data.password, emailCheck.password);
                     if (!passCheck) {
                         throw new Error(`Password not match!`);
                     } else {
