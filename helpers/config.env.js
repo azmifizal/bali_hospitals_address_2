@@ -4,6 +4,7 @@ module.exports = {
         'SUPER_ADMIN': 911,
         'USER': 1
     },
-    'db': 'mongodb://localhost/portofolio'
+    // 'db': 'mongodb://localhost/portofolio', 
+    'db': 'mongodb://userHospital:hospital123@ds157509.mlab.com:57509/portofolio'
 }
 

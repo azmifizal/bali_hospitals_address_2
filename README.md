@@ -81,10 +81,18 @@ and you need login to get access token
   "data": {
     "login": {
       "userId": "5cb3e5a10de5021e3f579370",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2IzZTVhMTBkZTUwMjFlM2Y1NzkzNzAiLCJwZXJtaXNzaW9uTGV2ZWwiOjEsImlhdCI6MTU1NTI5NDQ3OX0.ELCUrpB9hb9uLFsW-FScSKvYc5-KHn3tOyqx77hjqeX",
+      "token": "Your_token",
       "permissionLevel": 1
     }
   }
 }
 ```
-now you have a token so put the token in HTTP headers as Authorization and you will have access the route (*read documentation section on graphiql ^_^ ).
+now you have a token so put the token in HTTP headers object as Authorization after Bearer word
+
+```graphql
+  {
+    "Authorization": "Bearer your_token"
+  }
+```
+
+and you will have access the route (*read documentation section on graphiql ^_^ ).
