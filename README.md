@@ -1,36 +1,90 @@
-# Bali hospital address
+# Bali hospital address in Graphql
 
-### Intro
+### #Intro
 [PORTO] Graphql API of hospital address in Bali, made with node js, express js, graphql and mongo db.
 Data source: http://sirs.yankes.kemkes.go.id/rsonline/report/
 
-### Routes
-| Method | Route | Purpose | Need token | permission |
-| --- | --- | --- | --- | :---: |
-| POST | `/auth/login` | login | No | all users |
-| GET | `/auth/logout` | logout | No | all users |
-| GET | `/v3/user/who` | get user data | No | all users |
-| GET | `/v3/users` | get all users | Yes | all users |
-| GET | `/v3/users/:id` | get user by id | Yes | admin or user it self |
-| POST | `/v3/user/reg` | register new user | No | all users |
-| PATCH | `/v3/users/:id` | update user by Id | Yes | admin or user it self |
-| DELETE | `/v3/users/:id` | delete user by Id | Yes | admin or user it self |
-| GET | [`/v3/hospitals`](https://balihospitaladdress.herokuapp.com/v3/hospitals) | get all hospital | Yes | all users |
-| GET | `/v3/hospital?search=:key` | get hospital address by keywords | Yes | all users |
-| GET | `/v3/hospital/:id` | get hospital address by Id | Yes | all users |
-| POST | `/v3/hospital` | send new hospital data | Yes | only admin |
-| PATCH | `/v3/hospital/:id` | edit hospital by Id | Yes | only admin |
-| DELETE | `/v3/hospital/:id` | delete hopital by Id | Yes | only admin |
-
-### Demo
+### #Demo
 <!-- [balihospitaladdress.herokuapp.com](https://balihospitaladdress.herokuapp.com/)  -->
 soon!
 
-### To run this app locally :
-* Clone this repo
-* Run `npm install`
-* Run `npm run start`
-* Open browser and server will be in `http://127.0.0.1:4000/`
+### To run this app locally:
+#### 1) Clone this repo
 
-### To access the route
-You need jwt token to access several route, first go to `^^` to register your user account, send a body json with name, email and password inside, after that you can loggin to `^^` with email and password as a body json and jwt token will provided. Put the token in headers as Authorization and you will have access the route.
+```bash
+  git clone https://github.com/assmuni/bali_hospitals_address_2.git
+  cd bali_hospital_address_2
+```
+
+#### 2) Install all npm packages
+
+```bash
+  npm install
+```
+
+#### 3) Run the app
+```bash
+  npm run start
+```
+
+#### 4) Open the browser and Graphiql will be in `http://127.0.0.1:4000/`
+
+### #To access the route
+You need jwt token to access several query, first try to create a user account
+
+#query
+```graphql
+  mutation($data: insertUser){
+    addUser(data: $data){
+      name,	
+      email
+    }
+  }
+```
+
+#query variables
+```graphql
+  {
+    "data": {
+      "name": "your_name",
+      "email": "your_email",
+      "password": "your_password"
+    }
+  }
+```
+and you need login to get access token
+
+#query
+```graphql
+  query($data: insertLogin){
+    login(data: $data) {
+      userId,
+      token,
+      permissionLevel
+    }
+  }
+```
+
+#query variables
+```graphql
+  {
+    "data": {
+      "email": "your_email",
+      "password": "your_password"
+    }
+  }
+```
+
+#result
+```graphql
+  {
+  "data": {
+    "login": {
+      "userId": "5cb3e5a10de5021e3f579370",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2IzZTVhMTBkZTUwMjFlM2Y1NzkzNzAiLCJwZXJtaXNzaW9uTGV2ZWwiOjEsImlhdCI6MTU1NTI5NDQ3OX0.ELCUrpB9hb9uLFsW-FScSKvYc5-KHn3tOyqx77hjqeX",
+      "permissionLevel": 1
+    }
+  }
+}
+```
+now you have a token so put the token in HTTP headers as Authorization and you will have access the route (*read documentation section on graphiql ^_^ ).
