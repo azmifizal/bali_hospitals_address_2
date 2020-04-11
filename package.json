@@ -26,21 +26,21 @@
   },
   "homepage": "https://github.com/assmuni/bali_hospitals_address_2#readme",
   "dependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.2.0",
-    "graphql-tools": "^4.0.4",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
     "jsonwebtoken": "^8.5.1",
-    "merge-graphql-schemas": "^1.5.8",
+    "merge-graphql-schemas": "^1.7.7",
     "mongoose": "^5.4.20",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.4"
   },
   "devDependencies": {
-    "@babel/node": "^7.2.2"
+    "@babel/node": "^7.8.7"
   }
 }
